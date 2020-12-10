@@ -9,7 +9,6 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>java-data-structures-and-algorithms-book</module>
         <module>arithmetic-version-four</module>
     </modules>
 
