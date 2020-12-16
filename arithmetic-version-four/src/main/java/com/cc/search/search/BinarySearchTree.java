@@ -2,7 +2,7 @@ package com.cc.search.search;
 
 /**
  * @program: DataStructuresAndAlgorithms
- * @description: 二分查找树
+ * @description: 二叉查找树
  * @author: SunChao
  * @create: 2020-12-09 15:00
  **/
@@ -65,6 +65,78 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
             return x.value;
         }
 
+    }
+
+    public Key min() {
+        if (root == null) return null;
+        return min(root).key;
+    }
+
+    private Node min(Node x) {
+        if (x.left == null) return x;
+        return min(x.left);
+    }
+
+
+    public Key floor(Key key) {
+        if (key == null) return null;
+        return floor(root, key).key;
+    }
+
+    private Node floor(Node x, Key key) {
+        if (x == null) {
+            return null;
+        }
+        int cmp = key.compareTo(x.key);
+        if (cmp < 0) {
+            return floor(x.left, key);
+        } else if (cmp > 0) {
+            Node t = floor(x.right, key);
+            if (t == null) {
+                return x;
+            } else {
+                return t;
+            }
+        } else {
+            return x;
+        }
+    }
+
+    public Key select(int k) {
+        if (k > size(root) - 1) return null;
+        return select(root, k).key;
+    }
+
+    private Node select(Node x, int k) {
+        if (x == null) {
+            return null;
+        }
+        int t = size(x.left);
+        if (t > k) {
+            return select(x.left, k);
+        } else if (t < k) {
+            return select(x.right, k - t - 1);
+        } else {
+            return x;
+        }
+    }
+
+    public Key deleteMin() {
+        if (size(root) == 1) {
+            Node t = root;
+            root = null;
+            return t.key;
+        }
+        return deleteMin(root).key;
+    }
+
+    private Node deleteMin(Node x) {
+        if (x.left == null) {
+            return x.right;
+        }
+        x.left = deleteMin(x.left);
+        x.N = size(x.left) + size(x.right) + 1;
+        return x;
     }
 
     public void printAll() {
