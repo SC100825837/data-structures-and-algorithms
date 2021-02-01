@@ -1,5 +1,7 @@
 package com.cc.search.search;
 
+import java.util.HashMap;
+
 /**
  * @program: data-structures-and-algorithms
  * @description:
@@ -20,5 +22,8 @@ public class TestRedBlackTree {
         redBlackTree.put("P", 16);
         redBlackTree.put("L", 12);
         redBlackTree.printAll();
+        HashMap<Integer, Integer> map = new HashMap<>();
+        map.put(1,2);
+        System.out.println();
     }
 }

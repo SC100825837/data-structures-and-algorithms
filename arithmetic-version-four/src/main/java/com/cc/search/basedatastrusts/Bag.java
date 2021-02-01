@@ -1,9 +1,5 @@
 package com.cc.search.basedatastrusts;
 
-
-
-import java.lang.reflect.Array;
-import java.util.Arrays;
 import java.util.Iterator;
 
 /**
@@ -21,10 +17,10 @@ public class Bag<Item> implements Iterable<Item>{
         Node next;
     }
     public void add(Item item) {
-        Node oldfirst = first;
+        Node oldFirst = first;
         first = new Node();
         first.item = item;
-        first.next = oldfirst;
+        first.next = oldFirst;
     }
 
     @Override
