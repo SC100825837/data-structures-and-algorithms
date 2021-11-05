@@ -3,9 +3,31 @@ package com.cc.search.sort.merge;
 import com.cc.search.util.StdIn;
 import com.cc.search.util.StdOut;
 
+/**
+ * 自底向上的归并排序
+ */
 public class MergeBU {
     // This class should not be instantiated.
-    private MergeBU() { }
+    private MergeBU() {
+    }
+
+    /**
+     * Rearranges the array in ascending order, using the natural order.
+     *
+     * @param a the array to be sorted
+     */
+    public static void sort(Comparable[] a) {
+        int n = a.length;
+        Comparable[] aux = new Comparable[n];
+        for (int len = 1; len < n; len *= 2) {
+            for (int lo = 0; lo < n - len; lo += len + len) {
+                int mid = lo + len - 1;
+                int hi = Math.min(lo + len + len - 1, n - 1);
+                merge(a, aux, lo, mid, hi);
+            }
+        }
+        assert isSorted(a);
+    }
 
     // stably merge a[lo..mid] with a[mid+1..hi] using aux[lo..hi]
     private static void merge(Comparable[] a, Comparable[] aux, int lo, int mid, int hi) {
@@ -16,31 +38,19 @@ public class MergeBU {
         }
 
         // merge back to a[]
-        int i = lo, j = mid+1;
+        int i = lo, j = mid + 1;
         for (int k = lo; k <= hi; k++) {
-            if      (i > mid)              a[k] = aux[j++];  // this copying is unneccessary
-            else if (j > hi)               a[k] = aux[i++];
-            else if (less(aux[j], aux[i])) a[k] = aux[j++];
-            else                           a[k] = aux[i++];
-        }
-
-    }
-
-    /**
-     * Rearranges the array in ascending order, using the natural order.
-     * @param a the array to be sorted
-     */
-    public static void sort(Comparable[] a) {
-        int n = a.length;
-        Comparable[] aux = new Comparable[n];
-        for (int len = 1; len < n; len *= 2) {
-            for (int lo = 0; lo < n-len; lo += len+len) {
-                int mid  = lo+len-1;
-                int hi = Math.min(lo+len+len-1, n-1);
-                merge(a, aux, lo, mid, hi);
+            if (i > mid) {
+                a[k] = aux[j++];  // this copying is unnecessary
+            } else if (j > hi) {
+                a[k] = aux[i++];
+            } else if (less(aux[j], aux[i])) {
+                a[k] = aux[j++];
+            } else {
+                a[k] = aux[i++];
             }
         }
-        assert isSorted(a);
+
     }
 
     /***********************************************************************
@@ -57,8 +67,11 @@ public class MergeBU {
      *  Check if array is sorted - useful for debugging.
      ***************************************************************************/
     private static boolean isSorted(Comparable[] a) {
-        for (int i = 1; i < a.length; i++)
-            if (less(a[i], a[i-1])) return false;
+        for (int i = 1; i < a.length; i++) {
+            if (less(a[i], a[i - 1])) {
+                return false;
+            }
+        }
         return true;
     }
 
@@ -76,8 +89,9 @@ public class MergeBU {
      * @param args the command-line arguments
      */
     public static void main(String[] args) {
-        String[] a = StdIn.readAllStrings();
-        MergeBU.sort(a);
-        show(a);
+//        String[] a = StdIn.readAllStrings();
+        String[] strings = {"M", "E", "R", "G", "E", "S", "O", "R", "T", "E", "X", "A", "M", "P", "L", "E"};
+        MergeBU.sort(strings);
+        show(strings);
     }
 }

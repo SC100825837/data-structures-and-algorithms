@@ -5,6 +5,12 @@ import com.cc.search.util.StdOut;
 
 import java.util.Comparator;
 
+/**
+ * 改进：
+ * 1.对小规模子数组使用插入排序
+ * 2.测试数组是否已经有序
+ * 3.不将元素复制到辅助数组
+ */
 public class MergeX {
 
     private static final int CUTOFF = 7;  // cutoff to insertion sort
