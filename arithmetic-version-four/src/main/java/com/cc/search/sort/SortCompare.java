@@ -8,6 +8,7 @@ import com.cc.search.sort.basics.Shell;
 import com.cc.search.sort.merge.Merge;
 import com.cc.search.sort.merge.MergeBU;
 import com.cc.search.sort.merge.MergeX;
+import com.cc.search.sort.priorityqueue.Heap;
 import com.cc.search.sort.quick.Quick;
 import com.cc.search.sort.quick.Quick3way;
 import com.cc.search.sort.quick.QuickX;

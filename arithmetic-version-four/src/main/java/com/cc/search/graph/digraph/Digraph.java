@@ -4,8 +4,11 @@ import com.cc.search.basedatastrusts.Bag;
 import com.cc.search.basedatastrusts.Stack;
 import com.cc.search.util.In;
 import com.cc.search.util.StdOut;
+import javafx.scene.input.KeyCode;
 
 import java.util.NoSuchElementException;
+
+import static javafx.scene.input.KeyCode.G;
 
 /**
  * @program: DataStructuresAndAlgorithms
@@ -227,8 +230,17 @@ public class Digraph {
      * @param args the command-line arguments
      */
     public static void main(String[] args) {
-        In in = new In(args[0]);
-        Digraph G = new Digraph(in);
+//        In in = new In(args[0]);
+//        Digraph G = new Digraph(in);
+        Digraph G = new Digraph(7);
+        G.addEdge(0, 1);
+        G.addEdge(1, 2);
+        G.addEdge(1, 3);
+        G.addEdge(1, 6);
+        G.addEdge(2, 4);
+        G.addEdge(3, 4);
+        G.addEdge(6, 5);
+        G.addEdge(4, 5);
         StdOut.println(G);
     }
 

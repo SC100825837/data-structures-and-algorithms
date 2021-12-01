@@ -1,4 +1,4 @@
-package com.cc.search.sort;
+package com.cc.search.sort.priorityqueue;
 
 import com.cc.search.util.StdIn;
 import com.cc.search.util.StdOut;

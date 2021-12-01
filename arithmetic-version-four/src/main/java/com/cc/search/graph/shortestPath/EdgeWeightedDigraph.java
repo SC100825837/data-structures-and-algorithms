@@ -236,7 +236,7 @@ public class EdgeWeightedDigraph {
      * @param args the command-line arguments
      */
     public static void main(String[] args) {
-        In in = new In("tinyEWD.txt");
+        In in = new In("graph/tinyEWD.txt");
         EdgeWeightedDigraph G = new EdgeWeightedDigraph(in);
         StdOut.println(G);
     }

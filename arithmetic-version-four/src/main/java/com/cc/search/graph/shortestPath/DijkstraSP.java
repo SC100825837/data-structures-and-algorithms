@@ -1,7 +1,7 @@
 package com.cc.search.graph.shortestPath;
 
 import com.cc.search.basedatastrusts.Stack;
-import com.cc.search.sort.IndexMinPQ;
+import com.cc.search.sort.priorityqueue.IndexMinPQ;
 import com.cc.search.util.In;
 import com.cc.search.util.StdOut;
 
@@ -166,7 +166,7 @@ public class DijkstraSP {
      * @param args the command-line arguments
      */
     public static void main(String[] args) {
-        In in = new In("tinyEWD.txt");
+        In in = new In("graph/tinyEWD.txt");
         EdgeWeightedDigraph G = new EdgeWeightedDigraph(in);
         int s = 0;
 

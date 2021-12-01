@@ -101,7 +101,7 @@ public class AcyclicSP {
      * @param args the command-line arguments
      */
     public static void main(String[] args) {
-        In in = new In("tinyEWDAG.txt");
+        In in = new In("graph/tinyEWDAG.txt");
         int s = 5;
         EdgeWeightedDigraph G = new EdgeWeightedDigraph(in);
 

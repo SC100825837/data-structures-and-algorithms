@@ -1,4 +1,4 @@
-package com.cc.search.sort;
+package com.cc.search.sort.priorityqueue;
 
 /**
  * @program: data-structures-and-algorithms

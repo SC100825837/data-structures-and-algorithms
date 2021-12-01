@@ -2,7 +2,6 @@ package com.cc.search.graph.graph;
 
 import com.cc.search.basedatastrusts.Queue;
 import com.cc.search.basedatastrusts.Stack;
-import com.cc.search.graph.digraph.Digraph;
 import com.cc.search.util.In;
 import com.cc.search.util.StdOut;
 
@@ -221,11 +220,11 @@ public class BreadthFirstPaths {
      * @param args the command-line arguments
      */
     public static void main(String[] args) {
-        In in = new In(args[0]);
+        In in = new In("graph/tinyCG.txt");
         Graph G = new Graph(in);
         // StdOut.println(G);
 
-        int s = Integer.parseInt(args[1]);
+        int s = 0;
         BreadthFirstPaths bfs = new BreadthFirstPaths(G, s);
 
         for (int v = 0; v < G.V(); v++) {
