@@ -12,34 +12,15 @@ public class MyQuick {
     }
 
     private void sort(Comparable[] a, int lo, int hi) {
-        if (lo >= hi) {
-            return;
-        }
-        int v = partition(a, lo, hi);
-        sort(a, lo, v - 1);
-        sort(a, v + 1, hi);
+        Comparable v = a[lo];
+        int index = partition(a, lo, hi);
+        sort(a, lo, index - 1);
+        sort(a, index + 1, hi);
     }
 
     private int partition(Comparable[] a, int lo, int hi) {
-        Comparable v = a[lo];
         int left = lo, right = hi + 1;
-        while (true) {
-            while (less(a[++left], v)) {
-                if (left >= hi) {
-                    break;
-                }
-            }
-            while (less(v, a[--right])) {
-                if (right <= lo) {
-                    break;
-                }
-            }
-            if (left >= right) {
-                exch(a, lo, right);
-                return right;
-            }
-            exch(a, left, right);
-        }
+        while ()
     }
 
     private boolean less(Comparable a, Comparable b) {

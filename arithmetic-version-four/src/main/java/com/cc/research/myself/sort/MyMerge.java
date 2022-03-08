@@ -9,22 +9,21 @@ public class MyMerge {
 
     // 首先应该有个对外暴露的公共方法，可以传入数组
     public void sort(Comparable[] a) {
-        if (a.length <= 0) {
+        if (a.length <= 1) {
             return;
         }
         Comparable[] aux = new Comparable[a.length];
-        int lo = 0, hi = a.length - 1;
-        sort(a, aux, lo, hi);
+        sort(a, aux, 0, a.length - 1);
     }
 
     private void sort(Comparable[] a, Comparable[] aux, int lo, int hi) {
-        if (hi <= lo) {
+        if (lo >= hi) {
             return;
         }
         int mid = lo + (hi - lo) / 2;
         sort(a, aux, lo, mid);
         sort(a, aux, mid + 1, hi);
-        merge(a, aux, mid, lo, hi);
+        merge(a, aux, lo, mid, hi);
     }
 
     private void merge(Comparable[] a, Comparable[] aux, int lo, int mid, int hi) {
